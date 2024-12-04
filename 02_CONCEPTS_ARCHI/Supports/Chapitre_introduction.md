@@ -104,6 +104,49 @@ flowchart TD
 
 ---
 
+### Exemple d'arborescence clean architecture
+
+```txt
+src/
+│
+├── core/                       # Cœur de l'application (Domaine et Cas d'utilisation)
+│   ├── entities/               # Contient les entités métiers
+│   │   ├── User.ts             # Exemple d'entité User
+│   │   └── Product.ts          # Exemple d'entité Product
+│   ├── usecases/               # Contient les cas d'utilisation
+│   │   ├── CreateUserUseCase.ts# Cas d'utilisation pour créer un utilisateur
+│   │   └── GetUserUseCase.ts   # Cas d'utilisation pour récupérer un utilisateur
+│   ├── interfaces/             # Interfaces pour définir les contrats des dépendances
+│   │   ├── UserRepository.ts   # Interface pour la persistance des utilisateurs
+│   │   └── AuthService.ts      # Interface pour la gestion de l'authentification
+│   └── services/               # Services métiers
+│       └── AuthService.ts      # Logique métier pour l'authentification
+│
+├── adapters/                   # Adaptateurs pour interfacer le cœur avec l'extérieur
+│   ├── database/               # Implémentations des repositories
+│   │   ├── UserRepositoryImpl.ts # Implémentation de UserRepository avec TypeORM ou MongoDB
+│   │   └── ProductRepositoryImpl.ts # Implémentation de ProductRepository
+│   ├── controllers/            # Contrôleurs pour gérer les API
+│   │   ├── UserController.ts   # Contrôleur pour les utilisateurs
+│   │   └── ProductController.ts# Contrôleur pour les produits
+│   └── mappers/                # Mappers pour transformer les données
+│       └── UserMapper.ts       # Mapper pour les utilisateurs
+│
+├── infrastructure/             # Détails techniques et configurations externes
+│   ├── database/               # Configuration de la base de données
+│   │   └── dbConnection.ts     # Connexion à la base de données
+│   └── frameworks/             # Frameworks utilisés dans le projet
+│       └── ExpressApp.ts       # Configuration du serveur Express
+│
+├── config/                     # Configurations générales de l'application
+│   ├── default.ts              # Fichier de configuration par défaut
+│   ├── production.ts           # Configuration pour la production
+│   └── development.ts          # Configuration pour le développement
+│
+└── app.ts                      # Point d'entrée de l'application
+
+```
+
 ### Les Principes Sous-Jacents
 
 La Clean Architecture s’appuie sur plusieurs principes fondamentaux de développement logiciel, dont :
@@ -114,31 +157,7 @@ La Clean Architecture s’appuie sur plusieurs principes fondamentaux de dévelo
 2. **Dépendance inversée** :
    - Les couches internes (logique métier) ne dépendent jamais des couches externes (frameworks ou bases de données). Les dépendances pointent toujours vers l'intérieur.
   
-
-```js
-// logiquue métier 
-export interface UserRepository {
-  getUser(id: string): string;
-}
-
-export class GetUserUseCase {
-  constructor(private repo: UserRepository) {}
-  execute(id: string): string {
-    return this.repo.getUser(id);
-  }
-}
-
-// implémentation externe remplaçable facilement par une API par exemple
-export class DatabaseUserRepository implements UserRepository {
-  getUser(id: string): string {
-    return `User ${id} from DB`;
-  }
-}
-
-// point d'entrée
-const useCase = new GetUserUseCase(new DatabaseUserRepository());
-console.log(useCase.execute("1")); // Output: User 1 from DB
-```
+--- 
 
 1. **Separation of Concerns** :
    - Chaque couche se concentre sur une responsabilité unique.
