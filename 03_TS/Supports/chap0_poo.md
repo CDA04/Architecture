@@ -170,4 +170,4 @@ console.log(user.getDetails()); // Output: Bob, 30 years old
 - **Composition sur héritage** pour structurer les objets en combinant des fonctionnalités.
 - **Modèles de conception** (Design Patterns) pour des solutions réutilisables.
 
-Ce résumé couvre les bases et principes clés de la POO en TypeScript, utiles pour vos projets. Besoin d'exemples pratiques ? N'hésitez pas à demander !
+Ce résumé couvre les bases et principes clés de la POO en TypeScript, utiles pour vos projets. 
