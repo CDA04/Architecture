@@ -15,7 +15,7 @@
 ## Jour 3, 4 Introduction à l'architecture logiciel
 
 1. Introduction à la clean architecture [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_introduction.md)
-   1. Un exemple mal codé à refactoré en **Clean Architecture**, [enonce](../02_CONCEPTS_ARCHI/Exercices/malcode.md)
+   1. Un exemple mal codé à refactorer en **Clean Architecture**, [enonce](../02_CONCEPTS_ARCHI/Exercices/malcode.md)
    
 2. Architecture en composant : [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_architecture_composant.md)
 3. Comparatifs : [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_comparatifs.md)
