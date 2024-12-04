@@ -338,7 +338,6 @@ src/
 │       └── usersSlice.ts       # Slice pour les utilisateurs
 │
 ├── routes/                     # Gestion des routes de l'application
-│   └── AppRoutes.tsx           # Routes principales
 │
 ├── hooks/                      # Hooks personnalisés
 │   ├── useFetchTasks.ts        # Hook pour récupérer les tâches
