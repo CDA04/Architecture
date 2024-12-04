@@ -12,6 +12,12 @@
    
    *Créer une application en TypeScript pour simuler le fonctionnement d’une banque, en mettant en pratique des concepts de programmation orientée objet (POO), de gestion des collections et de génération aléatoire.*
 
+1. Présentation du projet [projet #1](https://docs.google.com/document/d/1EOpEZ38YUiOO0v79m2ivhj8b_MlEBlNq8HAOSpaH6_M/edit?tab=t.0#heading=h.q8jzv07ig69w)
+   1. prendre connaissance du projet et s'organiser (notion.so)
+   2. analyse des besoins, tableau des fonctionnalités
+   3. veille technologique
+  
+
 --- 
 
 ## Jour 3, 4 Introduction à l'architecture logiciel
@@ -23,6 +29,14 @@
 3. Comparatifs : [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_comparatifs.md)
 
 4. TP guidé sur la clean Architecture en React [sujet calculatrice](../02_CONCEPTS_ARCHI/Exercices/calculatrice.md)
+
+### Jour 4
+
+1. Projet [projet #1](https://docs.google.com/document/d/1EOpEZ38YUiOO0v79m2ivhj8b_MlEBlNq8HAOSpaH6_M/edit?tab=t.0#heading=h.q8jzv07ig69w)
+   1. prendre connaissance du projet et s'organiser (notion.so)
+   2. analyse des besoins, tableau des fonctionnalités
+   3. veille technologique
+   4. Création des maquettes avec Figma.
 
 ---
 
