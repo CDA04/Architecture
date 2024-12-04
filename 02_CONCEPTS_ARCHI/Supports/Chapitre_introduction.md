@@ -25,18 +25,18 @@ La **Clean Architecture**, popularisée par Robert C. Martin (Uncle Bob), est un
 
 ```mermaid
 flowchart TD
-    A[Entities] --> B[Use Cases] --> C[Interface Adapters] --> D[Frameworks & Drivers]
+    A[Entités] --> B[Cas d'utilisation] --> C[Adaptateurs d'interface] --> D[Cadres & Pilotes]
 
-    subgraph Core Domain
+    subgraph Domaine Central
         A
         B
     end
 
-    subgraph Application Boundary
+    subgraph Frontière de l'Application
         C
     end
 
-    subgraph External Systems
+    subgraph Systèmes Externes
         D
     end
 
@@ -45,9 +45,9 @@ flowchart TD
     style C fill:#9ff,stroke:#333,stroke-width:2px
     style D fill:#99f,stroke:#333,stroke-width:2px
 
-    A:::core -- Contains business logic independent of technical details --> B:::core
-    B:::core -- Orchestrates interactions with external actors --> C:::boundary
-    C:::boundary -- Bridges application logic with external systems --> D:::external
+    A:::core -- Contient la logique métier indépendante des détails techniques --> B:::core
+    B:::core -- Orchestre les interactions avec les acteurs externes --> C:::boundary
+    C:::boundary -- Relie la logique applicative aux systèmes externes --> D:::external
 ```
 
 ---
