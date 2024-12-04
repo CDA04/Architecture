@@ -351,6 +351,5 @@ src/
 ├── assets/                     # Fichiers statiques (images, styles)
 │   └── styles.css              # Fichier CSS global
 │
-├── main.tsx                    # Point d'entrée principal
-└── index.html                  # Fichier HTML principal
+└── main.tsx                    # Point d'entrée principal
 ```
