@@ -306,3 +306,51 @@ flowchart TD
 - Les **Entités** définissent la structure des données.  
 - Les **Cas d'utilisation** contrôlent les règles métier.  
 - Les **Adaptateurs d'interface** connectent ces couches au monde extérieur.
+
+## Proposition d'arborescence pour un projet React
+
+```txt
+
+src/
+│
+├── api/                        # Gestion des appels API
+│   └── endpoints/              # Points d'entrée API
+│       ├── tasks.ts            # API pour les tâches
+│       └── users.ts            # API pour les utilisateurs
+│
+├── components/                 # Composants React (Atomic Design)
+│   ├── atoms/                  # Éléments atomiques (boutons, inputs)
+│   │   └── Button.tsx          # Exemple : Composant bouton
+│   ├── molecules/              # Combinaisons d'atomes
+│   │   └── TaskItem.tsx        # Élément d'une tâche
+│   ├── organisms/              # Groupes complexes (listes, formulaires)
+│   │   └── TaskList.tsx        # Liste des tâches
+│   ├── templates/              # Layouts de page (header, footer)
+│   │   └── AppLayout.tsx       # Modèle de mise en page
+│   └── pages/                  # Pages complètes
+│       ├── HomePage.tsx        # Page d'accueil
+│       └── TasksPage.tsx       # Page des tâches
+│
+├── app/                        # Configuration globale de l'application
+│   ├── store.ts                # Configuration du Store Redux
+│   └── slices/                 # Slices Redux
+│       ├── tasksSlice.ts       # Slice pour les tâches
+│       └── usersSlice.ts       # Slice pour les utilisateurs
+│
+├── routes/                     # Gestion des routes de l'application
+│   └── AppRoutes.tsx           # Routes principales
+│
+├── hooks/                      # Hooks personnalisés
+│   ├── useFetchTasks.ts        # Hook pour récupérer les tâches
+│   └── useToggleTask.ts        # Hook pour changer l'état d'une tâche
+│
+├── utils/                      # Fonctions utilitaires
+│   ├── idGenerator.ts          # Génération d'IDs uniques
+│   └── apiHelpers.ts           # Aides pour les appels API
+│
+├── assets/                     # Fichiers statiques (images, styles)
+│   └── styles.css              # Fichier CSS global
+│
+├── main.tsx                    # Point d'entrée principal
+└── index.html                  # Fichier HTML principal
+```
