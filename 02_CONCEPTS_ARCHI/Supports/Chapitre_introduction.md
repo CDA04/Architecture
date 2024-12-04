@@ -54,21 +54,53 @@ flowchart TD
 
 ### Structure en couches
 
-La Clean Architecture est généralement représentée par des cercles concentriques, chaque couche ayant une responsabilité claire :
+---
 
-1. **Entités** :
-   - Représentent les modèles métier fondamentaux.
-   - Contiennent les règles métier universelles qui ne dépendent d'aucun détail technique.
+### **1. Entités**
 
-2. **Cas d’utilisation (Use Cases)** :
-   - Contiennent la logique métier spécifique à l’application.
-   - Décrivent les interactions possibles entre les entités et les acteurs externes.
+- **Responsabilité principale** : Représentent les modèles métier fondamentaux.
+- **Règles métier** : Contiennent les règles métier universelles qui ne dépendent d'aucun détail technique.
+- **Indépendance des technologies** : Les entités doivent être totalement indépendantes des détails d'implémentation (frameworks, bases de données, etc.).
+  
+**Principe clé** : Les entités sont au cœur de l'architecture, et doivent être isolées des autres couches pour garantir l'évolutivité et la stabilité du système.
 
-3. **Interface d’adaptation (Interface Adapters)** :
-   - Gèrent les conversions entre les cas d'utilisation et les systèmes externes (UI, base de données, APIs, etc.).
+---
 
-4. **Frameworks et drivers** :
-   - Contiennent les détails d’implémentation technique : frameworks, bibliothèques, interfaces utilisateur, bases de données.
+### **2. Cas d’utilisation (Use Cases)**
+
+- **Responsabilité principale** : Contiennent la logique métier spécifique à l’application.
+- **Interaction avec les entités** : Décrivent les interactions possibles entre les entités et les acteurs externes.
+- **Orchestration** : Organisent les flux de travail pour répondre aux besoins des utilisateurs tout en manipulant les entités.
+- **Dépendance** : Dépendent des entités, mais ne dépendent pas des couches externes (UI, frameworks, etc.).
+
+**Principe clé** : Les cas d’utilisation exposent la logique de l’application tout en restant indépendants des détails techniques et des choix d'implémentation.
+
+---
+
+### **3. Interface d’adaptation (Interface Adapters)**
+
+- **Responsabilité principale** : Gèrent les conversions entre les cas d'utilisation et les systèmes externes (UI, base de données, APIs, etc.).
+- **Médiation** : Agissent comme des intermédiaires pour convertir les données et les requêtes entre le domaine métier et les systèmes externes.
+- **Dépendance** : Dépendent des cas d'utilisation, mais doivent être découplés des entités.
+
+**Principe clé** : Cette couche permet d’adapter l’architecture aux besoins spécifiques des systèmes externes, sans affecter le domaine métier central.
+
+---
+
+### **4. Frameworks et drivers**
+
+- **Responsabilité principale** : Contiennent les détails d’implémentation technique : frameworks, bibliothèques, interfaces utilisateur, bases de données, etc.
+- **Dépendance** : Ce sont les composants les plus externes et peuvent changer sans affecter le cœur du système (les entités et les cas d’utilisation).
+  
+**Principe clé** : Cette couche contient des détails techniques, mais ne doit jamais affecter la logique métier. Les choix technologiques peuvent évoluer sans perturber le domaine central.
+
+---
+
+### **Principes clés de la Clean Architecture** :
+
+- **Indépendance des détails techniques** : La logique métier (entités et cas d’utilisation) doit être indépendante des technologies externes.
+- **Dépendances orientées vers l'intérieur** : Les couches internes ne doivent jamais dépendre des couches externes. Au contraire, les couches externes dépendent toujours des couches internes.
+- **Flexibilité et évolutivité** : La séparation claire des responsabilités garantit qu’un changement dans la technologie externe (framework, base de données, UI) n’impacte pas la logique métier.
 
 ---
 
@@ -107,7 +139,6 @@ export class DatabaseUserRepository implements UserRepository {
 const useCase = new GetUserUseCase(new DatabaseUserRepository());
 console.log(useCase.execute("1")); // Output: User 1 from DB
 ```
-
 
 1. **Separation of Concerns** :
    - Chaque couche se concentre sur une responsabilité unique.
