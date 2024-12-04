@@ -23,6 +23,33 @@ La **Clean Architecture**, popularisée par Robert C. Martin (Uncle Bob), est un
 5. **Indépendance des systèmes externes** :
    - Les intégrations avec des APIs tierces ou des systèmes externes sont isolées et peuvent être facilement modifiées ou remplacées.
 
+```mermaid
+flowchart TD
+    A[Entities] --> B[Use Cases] --> C[Interface Adapters] --> D[Frameworks & Drivers]
+
+    subgraph Core Domain
+        A
+        B
+    end
+
+    subgraph Application Boundary
+        C
+    end
+
+    subgraph External Systems
+        D
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ff9,stroke:#333,stroke-width:2px
+    style C fill:#9ff,stroke:#333,stroke-width:2px
+    style D fill:#99f,stroke:#333,stroke-width:2px
+
+    A:::core -- Contains business logic independent of technical details --> B:::core
+    B:::core -- Orchestrates interactions with external actors --> C:::boundary
+    C:::boundary -- Bridges application logic with external systems --> D:::external
+```
+
 ---
 
 ### Structure en couches
