@@ -20,7 +20,7 @@
 2. Architecture en composant : [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_architecture_composant.md)
 3. Comparatifs : [support](../02_CONCEPTS_ARCHI/Supports/Chapitre_comparatifs.md)
 
-5. TP guidé sur la clean Architecture en React [sujet calculatrice](../02_CONCEPTS_ARCHI/Exercices/calculatrice.md)
+4. TP guidé sur la clean Architecture en React [sujet calculatrice](../02_CONCEPTS_ARCHI/Exercices/calculatrice.md)
 
 ---
 
