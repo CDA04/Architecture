@@ -7,7 +7,8 @@
 1. Installation de TypeScript [support](../03_TS/Supports/chap1_introduction_installation.md)
 1. Rappel de POO en TypeScript [support](../03_TS/Supports/chap0_poo.md)
 1. Introduction à TypeScript [support](../03_TS/Supports/chap2_introduction_typescript.md)
-2. TP Banque en TypeScript [support](../03_TS/Exercices/Banque/enonce.md)
+   1. Exercices d'entrainement [exercice](../03_TS/Exercices/entrainement.md)
+1. TP Banque en TypeScript [support](../03_TS/Exercices/Banque/enonce.md)
    *Créer une application en TypeScript pour simuler le fonctionnement d’une banque, en mettant en pratique des concepts de programmation orientée objet (POO), de gestion des collections et de génération aléatoire.*
 
 --- 
