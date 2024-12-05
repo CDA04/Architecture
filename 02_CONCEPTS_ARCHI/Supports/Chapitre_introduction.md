@@ -144,6 +144,9 @@ app.ts                         // Point d'entrée de l'application
 .env                           // variable d'environnement
 ```
 
+
+
+```markdown
 +-----------------------------------+
 |          Infrastructure           |  <-- Couches externes (Frameworks, DB)
 |  (Express, Database, etc.)        |
@@ -162,6 +165,8 @@ app.ts                         // Point d'entrée de l'application
 |         Logiciel Métier (Domaine) |  <-- Contient la logique métier
 | (Entities, UseCases, Ports)       |
 +-----------------------------------+
+```
+
 
 
 ### Voir l'exemple 🌀 [app clean](../Examples/clean_architecture.md)

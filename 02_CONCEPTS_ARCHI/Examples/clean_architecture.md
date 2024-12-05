@@ -7,6 +7,7 @@
 ### **Structure du projet suivant la clean architecture :**
 
 
+```markdown
 +-----------------------------------+
 |          Infrastructure           |  <-- Couches externes (Frameworks, DB)
 |  (Express, Database, etc.)        |
@@ -25,6 +26,10 @@
 |         Logiciel Métier (Domaine) |  <-- Contient la logique métier
 | (Entities, UseCases, Ports)       |
 +-----------------------------------+
+```
+
+## Arborescence d'un projet avec la clean Architecture
+
 
 ```
 ├── adapters
@@ -308,3 +313,5 @@ console.error("Failed to connect to the database:", error);
 ### Retour au cours clean architecture 🌀
 
 [cours 🌀](../../02_CONCEPTS_ARCHI/Supports/Chapitre_introduction.md)
+
+
