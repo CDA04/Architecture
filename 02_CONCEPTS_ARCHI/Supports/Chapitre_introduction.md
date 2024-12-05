@@ -163,10 +163,8 @@ La Clean Architecture s’appuie sur plusieurs principes fondamentaux de dévelo
 
 2. **Dépendance inversée** :
    - Les couches internes (logique métier) ne dépendent jamais des couches externes (frameworks ou bases de données). Les dépendances pointent toujours vers l'intérieur.
-  
---- 
 
-1. **Separation of Concerns** :
+3. **Separation of Concerns** :
    - Chaque couche se concentre sur une responsabilité unique.
 
 ---
