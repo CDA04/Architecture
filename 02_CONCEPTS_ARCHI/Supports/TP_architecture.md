@@ -1,5 +1,9 @@
 ### TP guidé : Création d'une Application de Gestion d'Utilisateurs avec Port et Adaptateur 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 #### Contexte
 
 Vous devez créer une application simple pour gérer les utilisateurs. Vous utiliserez des données rangées dans un dossier data (faker data).
@@ -322,3 +326,7 @@ curl -X POST http://localhost:3000/api/user -H "Content-Type: application/json" 
 ```bash
 mongoimport --db create-user --collection users --file users.json --jsonArray --drop
 ```
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

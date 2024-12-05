@@ -1,5 +1,9 @@
 # Architectures logiciel 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 Cette architecture est moins modulable que le MVC (qui n'est pas en soir une architecture en couche).
 
 🌈 En MVC, une seule modification dans la base de données peut **être propagée à plusieurs vues** avec un minimum d'effort
@@ -229,3 +233,7 @@ class DataAccess {
 }
 ?>
 ```
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

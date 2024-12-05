@@ -1,5 +1,9 @@
 # Architecture Hexagonale
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 L'architecture hexagonale, également connue sous le nom d'architecture en ports et adaptateurs, a été **conceptualisée** par **Alistair Cockburn** dans les années 2000. 
 
 Cockburn est un informaticien renommé, auteur, conférencier et consultant spécialisé dans les méthodes de développement logiciel et la gestion de projet. Il est également l'un des signataires du Manifeste Agile.
@@ -69,3 +73,6 @@ tsconfig.json
 
 La distinction entre `domain` et `application` est clarifiée : `domain` représente la logique métier tandis que `application` représente l'utilisation de cette logique pour fournir des fonctionnalités spécifiques à l'application.
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

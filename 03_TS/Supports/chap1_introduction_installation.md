@@ -1,5 +1,9 @@
 # Configuration et installation de TypeScript 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 ### Installation et configuration
 
 1. Utilisez la version de Node.js LTS, voir sur le site Node.js
@@ -71,3 +75,6 @@ Modifiez maintenant le fichier package.json, ajoutez la ligne suivante dans la p
 npm run dev
 ```
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

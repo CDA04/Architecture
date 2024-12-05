@@ -1,5 +1,9 @@
 # Comparaison entre architecture hexagonal - MVC - en couches
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 ## Tableau comparatif
 
 | **Architecture** | **Description**                                                                           | **Exemple**                                                          | **Avantages**                                        | **Inconvénients**                              |
@@ -71,3 +75,7 @@ Chaque ingrédient est une couche de l'application, et l'ensemble forme un sandw
 Voici un plateau de sushi savoureux.
 Chaque pièces de sushi est différentes, donc chacun a un goût et donc un intérêt différent. Cependant, si je retire une pièce de ce plateau, ca reste un plateau de sushi.
 C'est une analogie pour **l'architecture hexagonale**. Chaque pièce de sushi est un composant de l'application, et l'ensemble forme un plateau de sushi (ou une application fonctionnelle). En retirer un composant n'affecte pas le goût de l'ensemble. Par exemple, retirer le sushi au saumon ne change pas le goût du sushi au thon, tout comme retirer le composant de données n'affecte pas le composant de logique métier. Chaque composant est indépendant et peut être remplacé sans affecter les autres.
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

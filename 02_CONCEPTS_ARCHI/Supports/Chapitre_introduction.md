@@ -1,5 +1,9 @@
 ### Introduction à la Clean Architecture 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 La **Clean Architecture**, popularisée par Robert C. Martin (Uncle Bob), est une approche qui vise à organiser le code d'une application pour maximiser sa **maintenabilité**, sa **testabilité** et son **évolutivité**. Elle repose sur des principes de séparation des préoccupations en couches distinctes, permettant de rendre les différents aspects de l'application indépendants les uns des autres. Cette architecture est particulièrement adaptée aux projets complexes, où les interactions entre la logique métier, l'interface utilisateur et les systèmes externes doivent être bien structurées.
 
 ---
@@ -352,3 +356,7 @@ src/
 │
 └── main.tsx                    # Point d'entrée principal
 ```
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

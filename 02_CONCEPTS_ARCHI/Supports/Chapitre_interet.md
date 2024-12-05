@@ -1,5 +1,9 @@
 ### 1. **Pourquoi la Clean Architecture ?**
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 **Objectif principal :**  
 - Rendre le code **maintenable** et **évolutif**.
 - **Séparer les préoccupations** : distinguer la logique métier des aspects techniques comme la base de données, l'interface utilisateur ou les frameworks.
@@ -83,3 +87,7 @@ Affichez un diagramme montrant les couches concentriques et les dépendances pou
 - **Testabilité accrue** : Les cas d'utilisation peuvent être testés sans dépendre d'une base de données ou d'un framework.
 - **Évolutivité** : Ajout d'une nouvelle interface utilisateur ou migration de base de données sans toucher aux couches internes.
 - **Lisibilité** : Une séparation claire des responsabilités facilite la compréhension du code.
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

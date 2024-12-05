@@ -1,5 +1,9 @@
 ## Le MVVM variation du modèle MVC
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 Le modèle MVVM (Modèle-Vue-Modèle de Vue) peut être adapté à l'architecture en composants. 
 
 🍅 Dans le contexte de l'architecture en composants, le modèle MVVM peut être utilisé pour organiser les composants de l'application de manière à ce que chaque composant soit responsable d'une partie spécifique de l'application, **tout en maintenant une séparation claire des préoccupations**.
@@ -15,3 +19,7 @@ MVVM adapté à l'architecture en composants :
 🍅 Ils récupèrent les données des composants métier et les formattent pour être affichées dans les composants d'interface utilisateur. Ils gèrent également les interactions utilisateur et mettent à jour les composants métier en conséquence.
 
 🔖 MVVM favorise la flexibilité, la maintenabilité et la scalabilité de l'application.
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

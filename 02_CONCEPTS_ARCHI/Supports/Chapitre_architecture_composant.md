@@ -1,5 +1,9 @@
 # L'architecture par composant
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 L'architecture par composant est un paradigme de conception où les systèmes logiciels sont construits en assemblant des composants réutilisables
 
 👍 L'architecture par composant est souvent mise en œuvre à travers des frameworks (Angular) ou des bibliothèques librairies ( React ) qui facilitent la création d'interfaces utilisateur modulaires et réutilisables.
@@ -157,3 +161,7 @@ src/
 └── main.jsx
 
 ```
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

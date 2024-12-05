@@ -1,5 +1,9 @@
 # Comparaison clean et hexa
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 ### 1. Clean Architecture
 
 Dans la Clean Architecture, nous allons organiser les fichiers en différentes couches : **Domain**, **UseCase**, et **Interface**.
@@ -205,3 +209,7 @@ Les adaptateurs permettent de connecter l'application aux différents environnem
 ### Comparaison :
 - **Clean Architecture** : La logique métier est bien séparée, mais on a plusieurs couches distinctes (UseCases, Interfaces, etc.), avec des dépendances contrôlées.
 - **Hexagonale** : Elle se concentre davantage sur les interactions externes via les ports et les adaptateurs, facilitant l'intégration avec des systèmes externes et rendant les tests plus simples.
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

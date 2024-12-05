@@ -1,5 +1,9 @@
 # Programmation orienté objet
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 La programmation orientée objet (POO) en TypeScript repose sur l’utilisation de concepts tels que : 
 
 - Les **classes**
@@ -171,3 +175,7 @@ console.log(user.getDetails()); // Output: Bob, 30 years old
 - **Modèles de conception** (Design Patterns) pour des solutions réutilisables.
 
 Ce résumé couvre les bases et principes clés de la POO en TypeScript, utiles pour vos projets. 
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

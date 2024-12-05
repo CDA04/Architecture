@@ -1,5 +1,9 @@
 # TypeScript 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 ## Rappel des intérêts de TS
 
 Le typage statique offre plusieurs avantages :
@@ -191,3 +195,7 @@ function identity<T>(arg: T): T {
 let result = identity<string>("Hello, World!");
 console.log(result);
 ```
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)

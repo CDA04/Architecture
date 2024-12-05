@@ -1,5 +1,9 @@
 # MVC 
 
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
+
 Attention MVC n'est pas une architecture en couche en soi, mais plutôt un modèle de conception logicielle qui divise une application en trois composants principaux : le modèle, la vue et le contrôleur.
 
 Le MVC est plus modulable qu'une architecture en couche.
@@ -202,3 +206,7 @@ $tasks = $controller->getAllTasks();
 ```
 
 🔖 Dans cet exemple, le modèle (`TaskModel.php`) gère la logique métier des tâches, le contrôleur (`TaskController.php`) traite les actions de l'utilisateur et communique avec le modèle, et la vue (`index.php`) affiche les données des tâches et les éléments d'interface utilisateur.
+
+### Plan du cours général
+
+[plan du cours](../../01_ORGA/00_plan.md)
