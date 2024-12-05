@@ -72,6 +72,17 @@ flowchart TD
 
 ### **2. Cas d’utilisation (Use Cases)**
 
+```mermaid
+usecaseDiagram
+  actor Utilisateur as "Utilisateur"
+  rectangle System {
+    usecase UC1 as "Créer un compte"
+    usecase UC2 as "Se connecter"
+  }
+  Utilisateur --> UC1
+  Utilisateur --> UC2
+```
+
 - **Responsabilité principale** : Contiennent la logique métier spécifique à l’application.
 - **Interaction avec les entités** : Décrivent les interactions possibles entre les entités et les acteurs externes.
 - **Orchestration** : Organisent les flux de travail pour répondre aux besoins des utilisateurs tout en manipulant les entités.
@@ -81,7 +92,7 @@ flowchart TD
 
 ---
 
-### **3. Interface d’adaptation (Interface Adapters)**
+### 🔌 **3. Interface d’adaptation (Interface Adapters)**
 
 - **Responsabilité principale** : Gèrent les conversions entre les cas d'utilisation et les systèmes externes (UI, base de données, APIs, etc.).
 - **Médiation** : Agissent comme des intermédiaires pour convertir les données et les requêtes entre le domaine métier et les systèmes externes.
@@ -91,7 +102,7 @@ flowchart TD
 
 ---
 
-### **4. Frameworks et drivers**
+### 🧩 **4. Frameworks et drivers**
 
 - **Responsabilité principale** : Contiennent les détails d’implémentation technique : frameworks, bibliothèques, interfaces utilisateur, bases de données, etc.
 - **Dépendance** : Ce sont les composants les plus externes et peuvent changer sans affecter le cœur du système (les entités et les cas d’utilisation).
