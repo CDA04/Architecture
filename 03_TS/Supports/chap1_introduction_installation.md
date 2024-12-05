@@ -10,10 +10,7 @@
 1. Initialisez une structure pour faire les exercices ou projet
    - TypeScript est installé en tant que devDependencies !
 
-:rocket:
-
-
-## Installation et configuration
+## :rocket: Installation et configuration
 
 1. Utilisez la version de Node.js LTS, voir sur le site Node.js
 
