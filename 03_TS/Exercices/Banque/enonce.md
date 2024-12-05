@@ -1,6 +1,7 @@
 ## **Simulation bancaire en TypeScript**
 
-### 💳 **Objectif**
+### **Objectif**
+💳  
 Créer une application en TypeScript pour simuler le fonctionnement d’une banque, en mettant en pratique des concepts de programmation orientée objet (POO), de gestion des collections et de génération aléatoire.
 
 ---
@@ -10,7 +11,7 @@ Vous êtes chargé de développer une simulation d'une banque qui gère des clie
 
 ---
 
-### **Spécifications**
+### 📋 **Spécifications**
 
 #### **1. La banque**
 - Une banque possède :
