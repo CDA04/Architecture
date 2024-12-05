@@ -72,23 +72,13 @@ flowchart TD
 
 ### **2. Cas d’utilisation (Use Cases)**
 
-```mermaid
-usecaseDiagram
-  actor Utilisateur as "Utilisateur"
-  rectangle System {
-    usecase UC1 as "Créer un compte"
-    usecase UC2 as "Se connecter"
-  }
-  Utilisateur --> UC1
-  Utilisateur --> UC2
-```
-
 - **Responsabilité principale** : Contiennent la logique métier spécifique à l’application.
 - **Interaction avec les entités** : Décrivent les interactions possibles entre les entités et les acteurs externes.
 - **Orchestration** : Organisent les flux de travail pour répondre aux besoins des utilisateurs tout en manipulant les entités.
 - **Dépendance** : Dépendent des entités, mais ne dépendent pas des couches externes (UI, frameworks, etc.).
 
-**Principe clé** : Les cas d’utilisation exposent la logique de l’application tout en restant indépendants des détails techniques et des choix d'implémentation.
+>[!NOTE]
+>**Principe clé** : Les cas d’utilisation exposent la logique de l’application tout en restant indépendants des détails techniques et des choix d'implémentation.
 
 ---
 
