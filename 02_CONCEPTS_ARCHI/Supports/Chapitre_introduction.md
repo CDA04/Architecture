@@ -152,6 +152,8 @@ src/
 
 ```
 
+### Voir l'exemple 🌀 [app clean](../Examples/clean_architecture.md)
+
 ### Les Principes Sous-Jacents
 
 La Clean Architecture s’appuie sur plusieurs principes fondamentaux de développement logiciel, dont :
