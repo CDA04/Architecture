@@ -45,16 +45,16 @@ Créez un dossier src, puis initialisez le projet avec la commande `tsc --init`
 ```json
 {
   "compilerOptions": {
-    "target": "ESNext",                                  
-    "module": "commonjs",                                 
-    //"moduleResolution": "bundler",                    
-    "outDir": "./dist",                                  
-    "esModuleInterop": true,                             
-    "strict": true,                                      
-    "skipLibCheck": true                                
+    "target": "ESNext",                      // Utilisation des dernières fonctionnalités JS
+    "module": "ESNext",                      // Utilisation du module ES (import/export)
+    "moduleResolution": "node",              // Résolution des modules comme dans Node.js
+    "outDir": "./dist",                      // Répertoire de sortie pour les fichiers compilés
+    "esModuleInterop": true,                 // Permet d'interopérer avec des modules CommonJS
+    "strict": true,                          // Activation des vérifications strictes
+    "skipLibCheck": true                     // Ignore la vérification des fichiers de bibliothèque
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],                 // Inclut tous les fichiers TypeScript dans "src"
+  "exclude": ["node_modules"]                 // Exclut le dossier "node_modules"
 }
 ```
 

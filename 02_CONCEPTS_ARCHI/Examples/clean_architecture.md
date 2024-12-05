@@ -4,146 +4,286 @@
 
 [cours 🌀](../../02_CONCEPTS_ARCHI/Supports/Chapitre_introduction.md)
 
-### **Structure du projet :**
+### **Structure du projet suivant la clean architecture :**
+
+
++-----------------------------------+
+|          Infrastructure           |  <-- Couches externes (Frameworks, DB)
+|  (Express, Database, etc.)        |
++-----------------------------------+
+            |
+            | (Adaptateurs implémentant des ports)
+            v
++-----------------------------------+
+|            Adaptateurs            |  <-- Relient le domaine aux interfaces externes
+| (API, Controllers, Repositories)  |
++-----------------------------------+
+            |
+            | (Appels via les ports)
+            v
++-----------------------------------+
+|         Logiciel Métier (Domaine) |  <-- Contient la logique métier
+| (Entities, UseCases, Ports)       |
++-----------------------------------+
 
 ```
-src/
-├── core/
-│   ├── entities/
-│   │   └── User.ts
-│   ├── usecases/
-│   │   ├── CreateUserUseCase.ts
-│   │   └── GetUserUseCase.ts
-│   ├── interfaces/
-│   │   └── UserRepository.ts
-│   └── services/
-│       └── AuthService.ts
-├── adapters/
-│   ├── database/
-│   │   └── UserRepositoryImpl.ts
-│   └── controllers/
-│       └── UserController.ts
-├── infrastructure/
-│   ├── database/
-│   │   └── dbConnection.ts
-│   └── frameworks/
-│       └── ExpressApp.ts
-├── config/
-│   ├── default.ts
-│   └── development.ts
-└── app.ts
+├── adapters
+│   ├── api
+│   │   ├── main.ts             // Point d'entrée pour démarrer le serveur Express
+│   │   └── userRouter.ts       // Définit les routes API liées à l'utilisateur (GET, POST, etc.)
+│   ├── controllers
+│   │   └── UserController.ts   // Gère la logique des requêtes HTTP pour l'utilisateur, interagit avec les cas d'utilisation
+│   └── database
+│       └── UserRepositoryImpl.ts  // Implémentation du dépôt d'utilisateurs, simule l'accès à la base de données (ici avec un tableau)
+├── app.ts                      // Point d'entrée principal de l'application, configure et lance le serveur après connexion à la DB
+├── config
+│   └── default.ts              // Contient la configuration par défaut, comme l'URL de la base de données et le port du serveur
+├── domain
+│   ├── entities
+│   │   └── User.ts             // Définition de l'entité "User", qui contient les propriétés et méthodes de l'utilisateur
+│   ├── interfaces
+│   │   └── UserRepository.ts   // Interface du dépôt d'utilisateurs, définit les méthodes à implémenter pour l'accès aux utilisateurs
+│   ├── services
+│   │   └── UserService.ts      // Contient la logique métier spécifique à l'utilisateur, par exemple la validation ou le calcul de l'âge
+│   └── usecases
+│       └── GetUserUseCase.ts  // Cas d'utilisation pour récupérer un utilisateur spécifique ou une liste d'utilisateurs
+├── infrastructure
+│   ├── database
+│   │   └── dbConnection.ts     // Gère la connexion à la base de données, même si ici c'est simulé
+│   └── frameworks
+│       └── ExpressApp.ts       // Configure et initialise le serveur Express
+└── types
+    ├── Config.ts              // Définit les types pour la configuration (par exemple, les paramètres du serveur et de la DB)
+    └── UserAdulte.ts          // Type pour associer une propriété supplémentaire "adulte" à l'entité User
+app.ts                         // Point d'entrée de l'application
+.env                           // variable d'environnement
 ```
 
 ---
 
-### **Code :**
+
+
+### **Domain :**
 
 #### **1. Entité : `User.ts`**
-```typescript
+```ts
 export class User {
-  constructor(
-    public id: string,
-    public name: string,
-    public email: string
-  ) {}
-
-  validateEmail(): boolean {
-    return /\S+@\S+\.\S+/.test(this.email);
+    constructor(
+      private _id: string,
+      private _name: string,
+      private _email: string,
+      private _age: number
+    ) {}
+  
+    // Getters
+    // Setters
   }
-}
+  
 ```
 
 #### **2. Interface : `UserRepository.ts`**
-```typescript
+```ts
 import { User } from "../entities/User";
 
 export interface UserRepository {
-  save(user: User): Promise<void>;
-  findById(id: string): Promise<User | null>;
+  findById(id: string): User | null;
+  save(user: User): void;
+  getAll(): User[];
+}
+
+```
+
+#### **3. Services: `UserService.ts`**
+
+```ts
+export class UserService {
+  // Méthode pour valider un email
+  static validateEmail(email: string): boolean {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  // Méthode pour vérifier si un utilisateur est majeur
+  static isAdult(age: number): boolean {
+    return age >= 18;
+  }
 }
 ```
 
 #### **3. Cas d’utilisation : `CreateUserUseCase.ts`**
-```typescript
-import { User } from "../entities/User";
+```ts
 import { UserRepository } from "../interfaces/UserRepository";
+import { User } from "../entities/User";
 
-export class CreateUserUseCase {
+export class GetUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
-  async execute(name: string, email: string): Promise<User> {
-    const user = new User(Date.now().toString(), name, email);
-    if (!user.validateEmail()) {
-      throw new Error("Invalid email");
-    }
-    await this.userRepository.save(user);
-    return user;
+  execute(id: string): User | null {
+    return this.userRepository.findById(id);
   }
 }
 ```
 
-#### **4. Implémentation Repository : `UserRepositoryImpl.ts`**
-```typescript
-import { User } from "../../core/entities/User";
-import { UserRepository } from "../../core/interfaces/UserRepository";
+### **Adaptateurs: ** 
+
+#### **4. datatabase : `UserRepositoryImpl.ts`**
+```ts
+import { User } from "../../domain/entities/User";
+import { UserRepository } from "../../domain/interfaces/UserRepository";
 
 export class UserRepositoryImpl implements UserRepository {
-  private users: User[] = []; // Simule une base de données en mémoire
+  private users: User[] = [
+    new User("1", "Alice", "alice@example.com", 25),
+    new User("2", "Bob", "bob@example.com", 30)
+  ];
 
-  async save(user: User): Promise<void> {
+  findById(id: string): User | null {
+    return this.users.find(user => user.id === id) || null;
+  }
+
+  save(user: User): void {
     this.users.push(user);
   }
 
-  async findById(id: string): Promise<User | null> {
-    return this.users.find(user => user.id === id) || null;
+  getAll(): User[] {
+    return this.users;
   }
 }
 ```
 
-#### **5. Contrôleur : `UserController.ts`**
-```typescript
+#### **5. Contrôleur : `UserController.ts` **
+```ts
 import { Request, Response } from "express";
-import { CreateUserUseCase } from "../../core/usecases/CreateUserUseCase";
+import { GetUserUseCase } from "../../domain/usecases/GetUserUseCase";
 import { UserRepositoryImpl } from "../database/UserRepositoryImpl";
+import { UserService } from "../../domain/services/UserService";
+import { UserWithAdulte } from "../../types/UserAdulte";
 
 const userRepository = new UserRepositoryImpl();
-const createUserUseCase = new CreateUserUseCase(userRepository);
+const getUserUseCase = new GetUserUseCase(userRepository);
 
 export const UserController = {
-  async createUser(req: Request, res: Response) {
-    const { name, email } = req.body;
-    try {
-      const user = await createUserUseCase.execute(name, email);
-      res.status(201).json(user);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
+    getUser(req: Request, res: Response) {
+        const { id } = req.params;
+        try {
+            const user = getUserUseCase.execute(id);
+            if (user) {
+                // service 
+                UserService.isAdult(user.age)
+                res.status(200).json({
+                    ...user,
+                    adulte: UserService.isAdult(user.age)
+                });
+            } else {
+                res.status(404).json({ message: "User not found" });
+            }
+        } catch (error: any) {
+            res.status(500).json({ message: error.message });
+        }
+    },
+    getAllUsers: (req: Request, res: Response) => {
+        try {
+            const users = userRepository.getAll();
+            const usersAdultes = []
+            
+            for (const user of users) {
+                const UserWA = { ...user, adulte : UserService.isAdult(user.age)}
+                usersAdultes.push(UserWA)
+            }
+
+            res.json(usersAdultes);
+        } catch (error: any) {
+            res.status(500).json({ message: error.message });
+        }
     }
-  },
 };
 ```
 
-#### **6. Serveur Express : `ExpressApp.ts`**
-```typescript
+#### **6. api : `userRouter.ts` et `main.ts`**
+```ts
+// userRouter
 import express from "express";
-import { UserController } from "../adapters/controllers/UserController";
+import { UserController } from "../controllers/UserController";
+
+const userRouter = express.Router();
+
+userRouter.get("/users", UserController.getAllUsers);
+userRouter.get("/user/:id", UserController.getUser);
+
+export default userRouter;
+
+// main.ts
+import express from "express";
+import userRouter from "./userRouter";
 
 const app = express();
-app.use(express.json());
 
-app.post("/users", UserController.createUser);
+app.use(express.json());
+app.use("/api", userRouter); // préfix les routes
 
 export default app;
 ```
 
-#### **7. Fichier principal : `app.ts`**
-```typescript
-import app from "./infrastructure/frameworks/ExpressApp";
+...
 
-const PORT = 3000;
+### Infrastructure 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+#### **7. database : `dbConnection.ts` **
+
+```js
+export const connectToDatabase = () => {
+    console.log("Fake database connected");
+  };
+```
+
+#### **8. frameworks : `ExpressApp.ts` **
+
+```js
+import express, { Request, Response, NextFunction } from "express";
+import main from "../../adapters/api/main";  // Exemple d'un routeur d'API
+
+const app = express();
+
+// Middlewares
+app.use(express.json());
+app.use("/", main);  // Exemple de route
+
+// Middleware pour gérer les erreurs 404
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).json({ message: "Page not found" });
 });
+
+// Optionnel : Middleware pour gérer les erreurs internes
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Internal Server Error" });
+});
+
+export default app;
+```
+
+#### **9. Fichier principal : `app.ts`**
+
+Point d'entrée de l'application
+
+```ts
+import server from "./infrastructure/frameworks/ExpressApp";
+import { connectToDatabase } from "./infrastructure/database/dbConnection";
+import { config } from "./config/default";
+
+const { server: { port: PORT } } = config;
+
+connectToDatabase();
+
+try {
+
+// Démarrer le serveur HTTP
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+} catch (error) {
+console.error("Failed to connect to the database:", error);
+}
+
 ```
 
 ---

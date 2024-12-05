@@ -112,45 +112,57 @@ flowchart TD
 ### Exemple d'arborescence clean architecture
 
 ```txt
-src/
-│
-├── core/                       # Cœur de l'application (Domaine et Cas d'utilisation)
-│   ├── entities/               # Contient les entités métiers
-│   │   ├── User.ts             # Exemple d'entité User
-│   │   └── Product.ts          # Exemple d'entité Product
-│   ├── usecases/               # Contient les cas d'utilisation
-│   │   ├── CreateUserUseCase.ts# Cas d'utilisation pour créer un utilisateur
-│   │   └── GetUserUseCase.ts   # Cas d'utilisation pour récupérer un utilisateur
-│   ├── interfaces/             # Interfaces pour définir les contrats des dépendances
-│   │   ├── UserRepository.ts   # Interface pour la persistance des utilisateurs
-│   │   └── AuthService.ts      # Interface pour la gestion de l'authentification
-│   └── services/               # Services métiers
-│       └── AuthService.ts      # Logique métier pour l'authentification
-│
-├── adapters/                   # Adaptateurs pour interfacer le cœur avec l'extérieur
-│   ├── database/               # Implémentations des repositories
-│   │   ├── UserRepositoryImpl.ts # Implémentation de UserRepository avec TypeORM ou MongoDB
-│   │   └── ProductRepositoryImpl.ts # Implémentation de ProductRepository
-│   ├── controllers/            # Contrôleurs pour gérer les API
-│   │   ├── UserController.ts   # Contrôleur pour les utilisateurs
-│   │   └── ProductController.ts# Contrôleur pour les produits
-│   └── mappers/                # Mappers pour transformer les données
-│       └── UserMapper.ts       # Mapper pour les utilisateurs
-│
-├── infrastructure/             # Détails techniques et configurations externes
-│   ├── database/               # Configuration de la base de données
-│   │   └── dbConnection.ts     # Connexion à la base de données
-│   └── frameworks/             # Frameworks utilisés dans le projet
-│       └── ExpressApp.ts       # Configuration du serveur Express
-│
-├── config/                     # Configurations générales de l'application
-│   ├── default.ts              # Fichier de configuration par défaut
-│   ├── production.ts           # Configuration pour la production
-│   └── development.ts          # Configuration pour le développement
-│
-└── app.ts                      # Point d'entrée de l'application
-
+├── adapters
+│   ├── api
+│   │   ├── main.ts             // Point d'entrée pour démarrer le serveur Express
+│   │   └── userRouter.ts       // Définit les routes API liées à l'utilisateur (GET, POST, etc.)
+│   ├── controllers
+│   │   └── UserController.ts   // Gère la logique des requêtes HTTP pour l'utilisateur, interagit avec les cas d'utilisation
+│   └── database
+│       └── UserRepositoryImpl.ts  // Implémentation du dépôt d'utilisateurs, simule l'accès à la base de données (ici avec un tableau)
+├── app.ts                      // Point d'entrée principal de l'application, configure et lance le serveur après connexion à la DB
+├── config
+│   └── default.ts              // Contient la configuration par défaut, comme l'URL de la base de données et le port du serveur
+├── domain
+│   ├── entities
+│   │   └── User.ts             // Définition de l'entité "User", qui contient les propriétés et méthodes de l'utilisateur
+│   ├── interfaces
+│   │   └── UserRepository.ts   // Interface du dépôt d'utilisateurs, définit les méthodes à implémenter pour l'accès aux utilisateurs
+│   ├── services
+│   │   └── UserService.ts      // Contient la logique métier spécifique à l'utilisateur, par exemple la validation ou le calcul de l'âge
+│   └── usecases
+│       └── GetUserUseCase.ts  // Cas d'utilisation pour récupérer un utilisateur spécifique ou une liste d'utilisateurs
+├── infrastructure
+│   ├── database
+│   │   └── dbConnection.ts     // Gère la connexion à la base de données, même si ici c'est simulé
+│   └── frameworks
+│       └── ExpressApp.ts       // Configure et initialise le serveur Express
+└── types
+    ├── Config.ts              // Définit les types pour la configuration (par exemple, les paramètres du serveur et de la DB)
+    └── UserAdulte.ts          // Type pour associer une propriété supplémentaire "adulte" à l'entité User
+app.ts                         // Point d'entrée de l'application
+.env                           // variable d'environnement
 ```
+
++-----------------------------------+
+|          Infrastructure           |  <-- Couches externes (Frameworks, DB)
+|  (Express, Database, etc.)        |
++-----------------------------------+
+            |
+            | (Adaptateurs implémentant des ports)
+            v
++-----------------------------------+
+|            Adaptateurs            |  <-- Relient le domaine aux interfaces externes
+| (API, Controllers, Repositories)  |
++-----------------------------------+
+            |
+            | (Appels via les ports)
+            v
++-----------------------------------+
+|         Logiciel Métier (Domaine) |  <-- Contient la logique métier
+| (Entities, UseCases, Ports)       |
++-----------------------------------+
+
 
 ### Voir l'exemple 🌀 [app clean](../Examples/clean_architecture.md)
 
