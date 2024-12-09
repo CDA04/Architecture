@@ -35,10 +35,4 @@
 
 ---
 
-### **Pourquoi ce TP est efficace ?**
-- **Appropriation active** : Les étudiants vont devoir **extraire et synthétiser les informations** par eux-mêmes.
-- **Compréhension des compétences** : Ce TP les aide à comprendre **ce qui est attendu** de manière concrète dans chaque activité.
-- **Outils professionnels** : Ils se familiariseront avec des outils et méthodologies clés qu'ils utiliseront au fil de la formation.
-
----
 
