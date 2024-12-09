@@ -21,10 +21,8 @@
 |------------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------|
 | **Développer une application sécurisée** | - Développer une interface sécurisée.                             | - Compétences en développement front-end, sécurité.     | - HTML/CSS, React/Angular, tests unitaires    |
 |                                          | - Réaliser des tests unitaires et de sécurité.                    | - Tests unitaires, sécurité informatique.               | - Jest, Mocha, OWASP                        |
-| **Concevoir et développer une application sécurisée** | - Concevoir une architecture logicielle multicouche.             | - Conception, bases de données relationnelles.          | - UML, SQL, diagrammes d'architecture         |
-|                                          | - Développer des composants d’accès aux données.                  | - Développement back-end, gestion de base de données.    | - Node.js, PostgreSQL, MongoDB               |
-| **Préparer le déploiement d’une application sécurisée** | - Préparer des plans de tests fonctionnels et de sécurité.       | - Tests d'intégration, gestion du déploiement.          | - Jenkins, Docker, Kubernetes                |
-|                                          | - Utiliser des outils CI/CD pour automatiser le déploiement.      | - Automatisation des tests, DevOps.                     | - GitHub Actions, GitLab CI, Docker          |
+
+...
 
 #### Livrables :
 - Un fichier contenant les tableaux remplis pour chaque activité.
