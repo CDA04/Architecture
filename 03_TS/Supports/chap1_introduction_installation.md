@@ -62,7 +62,7 @@ Modifiez maintenant le fichier package.json, ajoutez la ligne suivante dans la p
 
 ```json
 "scripts": {
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node-dev' src/app.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts"
   },
 ```
 
