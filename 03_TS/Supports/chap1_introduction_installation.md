@@ -32,7 +32,7 @@ nvm use 20.11.0
 mkdir exercices && cd exercices && npm init -y 
 
 npm install typescript --save-dev
-npm install nodemon ts-node-dev --save-dev
+npm install nodemon ts-node --save-dev
 ```  
 
 Créez un dossier src, puis initialisez le projet avec la commande `tsc --init`
@@ -62,7 +62,7 @@ Modifiez maintenant le fichier package.json, ajoutez la ligne suivante dans la p
 
 ```json
 "scripts": {
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node-dev' src/app.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts"
   },
 ```
 
