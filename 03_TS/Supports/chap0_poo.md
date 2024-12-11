@@ -79,34 +79,39 @@ console.log(account.getBalance()); // Output: 150
 
 ```typescript
 class Animal {
-  protected string name ;
-  public move(): string {
-    return "I can move";
-  }
+    constructor(protected name : string, private age : number = 10){
+        this.name = name
+        this.age = age
+    }
 
-  public function showName():string {
-
-      return this.name;
-  }
-}
-
-class Dog extends Animal {
-  public bark(): string {
-    return "Woof!";
-  }
-
-  public function changeName(name : string ): void {
-    this.name = name ;
-  }
+    public move(): string {
+      return "I can move";
+    }
   
+    public showName():string {
+  
+        return this.name;
+    }
+  }
+
+ class Dog extends Animal {
+    public bark(): string {
+        return "Woof!";
+    }
+
+    public changeName(name: string): void {
+        this.name = name;
+    }
 }
 
 const dog = new Dog();
 console.log(dog.move()); // Output: I can move
 console.log(dog.bark()); // Output: Woof!
 
+console.log( dog.showName() )
 dog.changeName( 'Felix' )
 console.log( dog.showName() )
+
 ```
 
 ---
