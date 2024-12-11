@@ -190,6 +190,16 @@ const user = new User("Bob", 30);
 console.log(user.getDetails()); // Output: Bob, 30 years old
 ```
 
+## Exercice 
+
+Définir les comportements abstraits qu'une classe Storage doit implémenter ( faire le code métier ). Réfléchissez d'abord sur papier, puis essayer de créer l'interface définissant ces comportement.
+
+```ts
+interface IStorage {
+
+}
+```
+
 ---
 
 ### 4. **Concepts avancés**
