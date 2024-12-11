@@ -8,6 +8,7 @@ import { Cat } from "./entities/Cat";
 import { ErrorPerson } from "./types/ErrorPerson";
 import { Product } from "./entities/Product";
 import { StorageArray } from "./storage/StorageArray";
+import { CartService } from "./services/CartService";
 
 const users: Person[] = []
 // logique métier sur les données
@@ -47,33 +48,24 @@ try {
 // 
 
 try {
-    const storageArray = new StorageArray();
 
     const products: Product[] = [
         new Product("Apple", 10),
         new Product("Banana", 5),
     ];
 
+    const cart = new CartService(new StorageArray())
+
     // acheter des produits
-    storageArray.setValue(products[0].name, 10 * products[0].price)
-    storageArray.setValue(products[1].name, 20 * products[1].price)
-    storageArray.setValue(products[0].name, 2 * products[0].price)
+    cart.buy(products[0], 10)
+    cart.buy(products[1], 20)
+    cart.buy(products[0], 2)
 
-    // logique métier 
-    let total : number = 0
-    const productsCommand =  storageArray.all()
-    for(const p of productsCommand){
-        total += p.value
-    }
-    console.log(total)
-    console.log(productsCommand)
-
-    storageArray.restore('Banana')
-    console.log(storageArray.all())
-
-    // reset 
-    storageArray.reset()
-    console.log(storageArray.all())
+    console.log(cart.total())
+    cart.restoreCommand('Banana')
+    console.log(cart.total())
+    cart.resetCommand()
+    console.log(cart.total())
 
 } catch (error) {
 

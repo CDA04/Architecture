@@ -1,5 +1,3 @@
-import { Product } from "./entities/Product";
-import { IStorage } from "./interfaces/IStorage";
 import { ErrorPerson } from "./types/ErrorPerson";
 import { Person } from "./types/Person";
 import { UserRepository } from "./users/userRepository";
@@ -21,18 +19,6 @@ export class Container {
             this.repository.save(user)
         }
 
-    }
-
-    priceTTC(){
-
-    }
-
-    resetCart(){
-
-    }
-
-    restoreCart(name: string){
-        
     }
 
 }
