@@ -75,23 +75,43 @@ console.log(account.getBalance()); // Output: 150
 
 #### **Héritage**
 - Une classe peut hériter des propriétés et des méthodes d’une autre classe via le mot-clé `extends`.
+- Le principe de l'héritage une sous-classe est une sorte de ou est un, par exemple la classe Dog est un Aminal.
 
 ```typescript
 class Animal {
-  move(): string {
-    return "I can move";
-  }
-}
+    constructor(protected name : string, private age : number = 10){
+        this.name = name
+        this.age = age
+    }
 
-class Dog extends Animal {
-  bark(): string {
-    return "Woof!";
+    public move(): string {
+      return "I can move";
+    }
+  
+    public showName():string {
+  
+        return this.name;
+    }
   }
+
+ class Dog extends Animal {
+    public bark(): string {
+        return "Woof!";
+    }
+
+    public changeName(name: string): void {
+        this.name = name;
+    }
 }
 
 const dog = new Dog();
 console.log(dog.move()); // Output: I can move
 console.log(dog.bark()); // Output: Woof!
+
+console.log( dog.showName() )
+dog.changeName( 'Felix' )
+console.log( dog.showName() )
+
 ```
 
 ---
@@ -144,8 +164,10 @@ console.log(myCar.start()); // Output: Car started
 
 ### 3. **Avantages en TypeScript**
 TypeScript enrichit la POO avec des fonctionnalités supplémentaires comme :
-- **Interfaces** pour définir des contrats.
 - **Génériques** pour rendre les classes ou méthodes réutilisables.
+  ```ts
+   type Pair<T> = { a : T }
+  ``` 
 - **Decorators** pour modifier dynamiquement le comportement.
 
 Exemple avec une **interface** :
@@ -166,6 +188,16 @@ class User implements IUser {
 
 const user = new User("Bob", 30);
 console.log(user.getDetails()); // Output: Bob, 30 years old
+```
+
+## Exercice 
+
+Définir les comportements abstraits qu'une classe Storage doit implémenter ( faire le code métier ). Réfléchissez d'abord sur papier, puis essayer de créer l'interface définissant ces comportement.
+
+```ts
+interface IStorage {
+
+}
 ```
 
 ---
