@@ -75,7 +75,7 @@ console.log(account.getBalance()); // Output: 150
 
 #### **Héritage**
 - Une classe peut hériter des propriétés et des méthodes d’une autre classe via le mot-clé `extends`.
-- On a principe d'héritage une sous-classe est une sorte de ou est un, par exemple la classe Dog est un Aminal.
+- Le principe de l'héritage une sous-classe est une sorte de ou est un, par exemple la classe Dog est un Aminal.
 
 ```typescript
 class Animal {
