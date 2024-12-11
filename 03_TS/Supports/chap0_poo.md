@@ -164,8 +164,10 @@ console.log(myCar.start()); // Output: Car started
 
 ### 3. **Avantages en TypeScript**
 TypeScript enrichit la POO avec des fonctionnalités supplémentaires comme :
-- **Interfaces** pour définir des contrats.
 - **Génériques** pour rendre les classes ou méthodes réutilisables.
+  ```ts
+   type Pair<T> = { a : T }
+  ``` 
 - **Decorators** pour modifier dynamiquement le comportement.
 
 Exemple avec une **interface** :
