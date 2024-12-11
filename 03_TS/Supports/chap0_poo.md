@@ -83,6 +83,11 @@ class Animal {
   public move(): string {
     return "I can move";
   }
+
+  public function showName():string {
+
+      return this.name;
+  }
 }
 
 class Dog extends Animal {
@@ -99,6 +104,9 @@ class Dog extends Animal {
 const dog = new Dog();
 console.log(dog.move()); // Output: I can move
 console.log(dog.bark()); // Output: Woof!
+
+dog.changeName( 'Felix' )
+console.log( dog.showName() )
 ```
 
 ---
