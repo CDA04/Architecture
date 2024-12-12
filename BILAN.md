@@ -1,7 +1,7 @@
 # Ce qu'il faut retenir 
 
 - POO
-[poo](../ARCHI/03_TS/Supports/chap0_poo.md)
+[poo](./03_TS/Supports/chap0_poo.md)
   - Visibilité des membres d'une classe
   - Encapsulation
     - modificateurs ( setter et getter)
