@@ -1,0 +1,1 @@
+export type ProducCommand = { name: string, value: number }
